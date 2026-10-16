@@ -8,13 +8,14 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="glow g1"></div><div class="glow g2"></div>
 <main>
 
 <header class="profile">
   <img class="avatar" src="https://avatars.githubusercontent.com/u/134027196?v=4" alt="EasonLai96 頭像" width="96" height="96">
   <div>
-    <h1>EasonLai96</h1>
-    <p class="sub">寫 Discord / Telegram 機器人和網頁小工具</p>
+    <h1><span class="grad">EasonLai96</span></h1>
+    <p class="sub">寫 Discord / Telegram 機器人和網頁小工具<span class="cursor">_</span></p>
     <div class="meta">
       <span><b id="repoCount">4</b> 個公開專案</span>
       <span>主要語言 Python · JavaScript</span>
@@ -70,6 +71,14 @@
   </div>
 </section>
 
+<section class="visitors">
+  <h2>來訪人數</h2>
+  <div class="counter">
+    <img src="https://count.getloli.com/@easonlai96-personal-site?name=easonlai96-personal-site&amp;theme=moebooru&amp;padding=7&amp;offset=0&amp;align=top&amp;scale=1&amp;pixelated=1&amp;darkmode=auto" alt="來訪人數計數器" loading="lazy">
+  </div>
+  <p class="hint">感謝你的來訪 ✨</p>
+</section>
+
 </main>
 <footer><a href="https://github.com/EasonLai96" target="_blank" rel="noopener">github.com/EasonLai96</a></footer>
 
@@ -89,6 +98,15 @@ fetch('https://api.github.com/users/EasonLai96/repos?per_page=100')
       el.querySelector('.upd').textContent = fmt(r.pushed_at);
     });
   }).catch(() => {});
+
+// 捲動到才淡入
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+}), { threshold: .12 });
+document.querySelectorAll('.repo, section').forEach((el, i) => {
+  el.classList.add('fade'); el.style.transitionDelay = (el.classList.contains('repo') ? (i % 4) * 80 : 0) + 'ms';
+  io.observe(el);
+});
 </script>
 </body>
 </html>

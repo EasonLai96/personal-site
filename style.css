@@ -37,3 +37,41 @@ footer a:hover{color:var(--link)}
   .meta{justify-content:center}
   .repos{grid-template-columns:1fr}
 }
+
+/* ── 美化 ── */
+body{overflow-x:hidden}
+main{position:relative;z-index:1}
+.glow{position:fixed;width:520px;height:520px;border-radius:50%;filter:blur(120px);opacity:.22;z-index:0;pointer-events:none}
+.g1{background:#58a6ff;top:-180px;left:-160px;animation:float 14s ease-in-out infinite}
+.g2{background:#bc8cff;bottom:-200px;right:-160px;animation:float 18s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translate(60px,40px)}}
+
+.avatar{box-shadow:0 0 0 3px var(--bg),0 0 0 5px #58a6ff55,0 8px 30px rgba(88,166,255,.25);transition:transform .4s}
+.avatar:hover{transform:rotate(-8deg) scale(1.05)}
+h1{font-size:34px}
+.grad{background:linear-gradient(90deg,#58a6ff,#bc8cff,#ff7eb6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cursor{color:#58a6ff;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.btn{transition:all .2s}
+.btn:hover{background:#58a6ff;color:#0d1117;border-color:#58a6ff;transform:translateY(-2px)}
+
+h2{display:flex;align-items:center;gap:10px}
+h2::before{content:"";width:4px;height:16px;border-radius:2px;background:linear-gradient(#58a6ff,#bc8cff)}
+
+.repo{position:relative;background:linear-gradient(180deg,#1a2029,#161b22);transition:transform .25s,border-color .25s,box-shadow .25s}
+.repo::before{content:"";position:absolute;inset:0 0 auto;height:3px;border-radius:8px 8px 0 0;background:linear-gradient(90deg,#58a6ff,#bc8cff);opacity:0;transition:opacity .25s}
+.repo:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 0 1px #58a6ff44}
+.repo:hover::before{opacity:1}
+
+.bar{height:10px}
+.bar i{transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+
+.visitors{text-align:center}
+.visitors h2{justify-content:center}
+.counter{display:inline-block;padding:18px 22px;border:1px solid var(--line);border-radius:12px;background:var(--panel);max-width:100%;overflow-x:auto}
+.counter img{display:block;height:auto;max-width:100%;image-rendering:pixelated}
+.hint{color:var(--muted);font-size:13px;margin-top:10px}
+
+.fade{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.fade.show{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.fade{opacity:1;transform:none}.glow,.cursor{animation:none}}
