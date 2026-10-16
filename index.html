@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eason｜讓東西真的動起來</title>
+<meta name="description" content="Eason 的個人網站：機電實作、機器人、AI 影像辨識與 Discord 機器人專案。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <a class="logo" href="#top">Eason<span>.</span></a>
+  <nav>
+    <a href="#about">關於</a>
+    <a href="#projects">作品</a>
+    <a href="#skills">技能</a>
+    <a href="#contact">聯絡</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="hero-text">
+    <p class="kicker">Hi, I'm Eason 👋</p>
+    <h1>Eason</h1>
+    <p class="lead">一個喜歡動手做的高中生。<br>
+      把<b>電源、驅動與程式</b>整合成真的能動的東西，再回頭弄懂背後的原理。</p>
+    <div class="tags">
+      <span>⚙️ 機電實作</span><span>🤖 機器人</span><span>🐍 Python</span><span>🧠 AI</span>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="#projects">看我的作品</a>
+      <a class="btn" href="https://github.com/EasonLai96" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <img src="img/arm.jpg" alt="三軸木作機械手臂與 Arduino 控制板">
+    <p>自己接線、寫程式的三軸機械手臂</p>
+  </div>
+</section>
+
+<section class="stats">
+  <div><b>3</b><span>件全國賽獲獎作品</span></div>
+  <div><b>24h</b><span>機械手臂實作營</span></div>
+  <div><b>160+</b><span>個 Discord 伺服器在用我的機器人</span></div>
+  <div><b>3,500+</b><span>位使用者</span></div>
+</section>
+
+<section id="about" class="block">
+  <h2><small>01</small>關於我</h2>
+  <div class="about">
+    <p>比起純粹寫程式，我更想讓東西<b>真的動起來</b>。馬達為什麼要獨立供電、兩端為什麼要共地、角度為什麼由 PWM 決定，這些是我現在最想弄懂的事。</p>
+    <p>我習慣先做出東西，再回頭補原理。程式對我來說是工具，不是目的；目標是成為能把想法做成實體產品、而且說得出原理的工程師。</p>
+    <ul class="traits">
+      <li><b>追根究柢</b>投籃機命中率差，查遍程式都沒問題，最後發現是設計圖上的連桿比例算錯。</li>
+      <li><b>當機立斷</b>比賽當天電路板燒毀，先嘗試修復、確定救不回來才換板，趕上比賽。</li>
+      <li><b>負責到底</b>自己寫的機器人公開後持續維護，每天都有人在用。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects" class="block">
+  <h2><small>02</small>作品</h2>
+  <div class="cards">
+
+    <article class="card">
+      <img src="img/vehicles.jpg" alt="競賽用遙控載具">
+      <div class="card-body">
+        <p class="meta">機電實作｜科技創作競賽</p>
+        <h3>全國科技創作競賽</h3>
+        <p>連續兩年參賽，三件作品都拿到<b>全國賽佳作</b>：投擲裝置、蒐集搬運機構，以及題目當天才公布的全能遙控車。</p>
+        <p class="note">學到：在時限內做取捨，比事後檢討更有用。</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="img/arm.jpg" alt="三軸機械手臂">
+      <div class="card-body">
+        <p class="meta">機電實作｜24 小時營隊</p>
+        <h3>三軸機械手臂</h3>
+        <p>三天內用三顆伺服馬達與 Arduino 做出能動的木作機械手臂，我負責程式與配線。</p>
+        <div class="chips"><span>PWM 角度控制</span><span>獨立供電</span><span>共地</span><span>驅動板配線除錯</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="img/ai-flow.jpg" alt="影像辨識流程">
+      <div class="card-body">
+        <p class="meta">AI｜國際高中生競賽</p>
+        <h3>AI 影像辨識</h3>
+        <p>參加台日高中 AI 競賽，題目是辨識棋盤上的棋子。我負責切圖與訓練調整，驗證集準確率 <b>83.8%</b>。</p>
+        <div class="chips"><span>ResNet50</span><span>FAISS</span><span>資料擴增</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-code" aria-hidden="true"><code>$ bot status<br><i>● online</i>&nbsp; 160+ guilds<br>&nbsp;&nbsp;3,500+ users<br>&nbsp;&nbsp;tests: 103 passed</code></div>
+      <div class="card-body">
+        <p class="meta">軟體｜自學專案</p>
+        <h3>Discord 機器人</h3>
+        <p>用 Python 寫的 Discord 機器人，約 20 個模組。我負責服務層：佇列與併發控制、快取、優雅重啟、翻譯，以及自動化測試。</p>
+        <p class="note">改一個功能壞三個地方之後，我才開始寫測試。</p>
+        <a class="link" href="https://github.com/EasonLai96" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="skills" class="block">
+  <h2><small>03</small>技能</h2>
+  <div class="skills">
+    <div><h4>⚡ 硬體 / 機電</h4><p>Arduino・伺服馬達 PWM 控制・電源與接地配置・驅動板接線・機構設計與木作</p></div>
+    <div><h4>💻 軟體</h4><p>Python・discord.py・非同步與併發控制・快取設計・自動化測試・Git / GitHub</p></div>
+    <div><h4>🧠 AI / 資料</h4><p>影像資料前處理與擴增・特徵嵌入・向量檢索・誤判分析</p></div>
+    <div><h4>🔒 其他</h4><p>伺服器部署與維運・基礎資安（注入攻擊、密碼學、CTF）</p></div>
+  </div>
+  <div class="next">
+    <h4>接下來想學的</h4>
+    <p>電路學與電子學 → 用運動學「算出」機械手臂的角度 → 做一套視覺回饋式夾取系統。</p>
+  </div>
+</section>
+
+<section id="contact" class="block contact">
+  <h2>一起聊聊？</h2>
+  <p>對機電、機器人或我的專案有興趣，歡迎到 GitHub 找我。</p>
+  <div class="cta">
+    <a class="btn primary" href="https://github.com/EasonLai96" target="_blank" rel="noopener">GitHub @EasonLai96 ↗</a>
+  </div>
+</section>
+
+</main>
+
+<footer>© 2026 Eason</footer>
+</body>
+</html>
