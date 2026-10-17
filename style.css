@@ -118,3 +118,13 @@ a,button{-webkit-tap-highlight-color:transparent}
   footer{padding:36px 0 calc(24px + env(safe-area-inset-bottom))}
   .glow{width:360px;height:360px}
 }
+
+/* ── 服務狀態燈 ── */
+.status{display:inline-flex;align-items:center;gap:7px;margin-top:8px;padding:2px 10px 2px 8px;border-radius:99px;font-size:12px;color:var(--muted);background:#21262d;border:1px solid var(--line);align-self:flex-start}
+.status .dot{width:8px;height:8px;border-radius:50%;background:#8b949e}
+.status.up{color:#3fb950;border-color:#23863655;background:rgba(35,134,54,.12)}
+.status.up .dot{background:#3fb950;box-shadow:0 0 0 0 #3fb95099;animation:pulse 2s infinite}
+.status.down{color:#f85149;border-color:#f8514955;background:rgba(248,81,73,.1)}
+.status.down .dot{background:#f85149}
+@keyframes pulse{70%{box-shadow:0 0 0 7px #3fb95000}100%{box-shadow:0 0 0 0 #3fb95000}}
+@media (prefers-reduced-motion:reduce){.status.up .dot{animation:none}}

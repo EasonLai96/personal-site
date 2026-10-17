@@ -49,6 +49,7 @@
     <article class="repo" data-repo="fxweb">
       <a class="cover" href="https://github.com/EasonLai96/fxweb" target="_blank" rel="noopener" aria-label="fxweb 的 GitHub 頁面"></a>
       <div class="top"><h3>fxweb</h3><span class="star">★ <i>0</i></span></div>
+      <div class="status" id="fxStatus"><span class="dot"></span><span class="txt">檢查服務狀態中…</span></div>
       <p>槓桿交易練習場：虛構行情的外匯模擬交易網頁遊戲，有登入帳戶、排行榜、成就與分享卡。</p>
       <ul class="facts"><li>前端 GitHub Pages</li><li>後端 Cloudflare Workers + D1</li></ul>
       <div class="foot"><span class="lang"><i style="background:#f1e05a"></i>JavaScript</span><span class="upd"></span>
@@ -112,6 +113,21 @@ fetch('https://api.github.com/users/EasonLai96/repos?per_page=100')
       el.querySelector('.upd').textContent = fmt(r.pushed_at);
     });
   }).catch(() => {});
+
+// 服務狀態燈：遊戲伺服器健康檢查（每 60 秒更新一次）
+const fxStatus = document.getElementById('fxStatus');
+async function checkFx() {
+  const set = (cls, txt) => { fxStatus.className = 'status ' + cls; fxStatus.querySelector('.txt').textContent = txt; };
+  const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), 8000), t0 = performance.now();
+  try {
+    const r = await fetch('https://fxweb-api.1090340.workers.dev/api/health', { signal: ctl.signal, cache: 'no-store' });
+    const ms = Math.round(performance.now() - t0);
+    if (r.ok && (await r.json()).ok) set('up', `運作中 · 回應 ${ms} ms`);
+    else set('down', `伺服器異常（HTTP ${r.status}）`);
+  } catch { set('down', '目前連不上遊戲伺服器'); }
+  finally { clearTimeout(timer); }
+}
+checkFx(); setInterval(() => { if (!document.hidden) checkFx(); }, 60000);
 
 // 捲動到才淡入
 const io = new IntersectionObserver(es => es.forEach(e => {
