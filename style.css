@@ -119,6 +119,20 @@ a,button{-webkit-tap-highlight-color:transparent}
   .glow{width:360px;height:360px}
 }
 
+/* ── Folia 重點展示 ── */
+.featured{padding:28px;border:1px solid #58a6ff55;border-radius:16px;background:linear-gradient(135deg,#182332,#161b22 70%)}
+.eyebrow{font-size:11px;letter-spacing:.15em;color:#79c0ff;font-weight:700;margin-bottom:12px}
+.featured h2{font-size:28px;margin-bottom:8px}
+.feature-lead{font-size:19px;font-weight:600;margin-bottom:10px}
+.feature-description{color:var(--muted);max-width:720px;margin-bottom:18px}
+.feature-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:20px 0}
+.feature-actions .primary{background:#238636;border-color:#2ea043;color:#fff}
+.feature-link,.featured .hint a{color:var(--link)}
+.feature-link:hover,.featured .hint a:hover{text-decoration:underline}
+.feature-video{display:block;width:100%;height:auto;aspect-ratio:1280/592;object-fit:contain;background:#000;border-radius:10px;border:1px solid var(--line)}
+a:focus-visible,video:focus-visible{outline:2px solid var(--link);outline-offset:4px}
+@media(max-width:640px){.featured{padding:18px}.featured h2{font-size:25px}.feature-lead{font-size:17px}.feature-actions{align-items:stretch}.feature-actions .btn{max-width:none;margin:0}.feature-link{padding:8px 0}}
+
 /* ── 服務狀態燈 ── */
 .status{display:inline-flex;align-items:center;gap:7px;margin-top:8px;padding:2px 10px 2px 8px;border-radius:99px;font-size:12px;color:var(--muted);background:#21262d;border:1px solid var(--line);align-self:flex-start}
 .status .dot{width:8px;height:8px;border-radius:50%;background:#8b949e}
